@@ -23,12 +23,12 @@ import (
 	tjconfig "github.com/crossplane/terrajet/pkg/config"
 	"github.com/hashicorp/terraform-plugin-sdk/v2/helper/schema"
 
-	"github.com/crossplane-contrib/provider-jet-template/config/null"
+	"github.com/SuryaLeon/provider-apigeebasictwo/config/null"
 )
 
 const (
-	resourcePrefix = "template"
-	modulePath     = "github.com/crossplane-contrib/provider-jet-template"
+	resourcePrefix = "apigeebasictwo"
+	modulePath     = "github.com/SuryaLeon/provider-apigeebasictwo"
 )
 
 //go:embed schema.json

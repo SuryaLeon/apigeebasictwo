@@ -1,7 +1,7 @@
 apiVersion: meta.pkg.crossplane.io/v1alpha1
 kind: Provider
 metadata:
-  name: provider-jet-template
+  name: provider-apigeebasictwo
 spec:
   controller:
-    image: DOCKER_REGISTRY/provider-jet-template-controller:VERSION
+    image: drsurya/csspln:ab.2.2.c

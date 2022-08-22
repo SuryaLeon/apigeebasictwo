@@ -20,19 +20,28 @@ set -euo pipefail
 
 REPLACE_FILES='./* ./.github :!build/** :!go.* :!hack/prepare.sh'
 # shellcheck disable=SC2086
+git grep -l 'jet.template' -- ${REPLACE_FILES} | xargs sed -i.bak "s/jet.template/${ProviderNameLower}/g"
 git grep -l 'template' -- ${REPLACE_FILES} | xargs sed -i.bak "s/template/${ProviderNameLower}/g"
+git grep -l 'template' -- ${REPLACE_FILES} | xargs sed -i.bak "s/jet.//g"
+git grep -l 'contrib' -- ${REPLACE_FILES} | xargs sed -i.bak "s/crossplane-contrib/${RepoName}/g"
+git grep -l 'jet.crossplane' -- ${REPLACE_FILES} | xargs sed -i.bak "s/jet.//g"
 # shellcheck disable=SC2086
 git grep -l 'Template' -- ${REPLACE_FILES} | xargs sed -i.bak "s/Template/${ProviderNameUpper}/g"
+git grep -l 'Jet.Template' -- ${REPLACE_FILES} | xargs sed -i.bak "s/Template/${ProviderNameUpper}/g"
+git grep -l 'Template' -- ${REPLACE_FILES} | xargs sed -i.bak "s/Template/${ProviderNameUpper}/g"
+git grep -l 'Template' -- ${REPLACE_FILES} | xargs sed -i.bak "s/jet/apig/g"
+git grep -l 'Jet.Template' -- ${REPLACE_FILES} | xargs sed -i.bak "s/Jet.Template/${ProviderNameUpper}/g"
 # We need to be careful while replacing "template" keyword in go.mod as it could tamper
 # some imported packages under require section.
-sed -i.bak "s/provider-jet-template/provider-jet-${ProviderNameLower}/g" go.mod
+sed -i.bak "s/provider-jet-template/provider-${ProviderNameLower}/g" go.mod
+sed -i.bak "s/crossplane-contrib/${RepoName}/g" go.mod
 
 # Clean up the .bak files created by sed
 git clean -fd
 
 git mv "internal/clients/template.go" "internal/clients/${ProviderNameLower}.go"
-git mv "cluster/images/provider-jet-template" "cluster/images/provider-jet-${ProviderNameLower}"
-git mv "cluster/images/provider-jet-template-controller" "cluster/images/provider-jet-${ProviderNameLower}-controller"
+git mv "cluster/images/provider-jet-template" "cluster/images/provider-${ProviderNameLower}"
+git mv "cluster/images/provider-jet-template-controller" "cluster/images/provider-${ProviderNameLower}-controller"
 
 # We need to remove this api folder otherwise first `make generate` fails with
 # the following error probably due to some optimizations in go generate with v1.17:
