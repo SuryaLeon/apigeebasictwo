@@ -30,6 +30,9 @@ type RoleObservation struct {
 }
 
 type RoleParameters struct {
+
+	// +kubebuilder:validation:Required
+	Name *string `json:"name" tf:"name,omitempty"`
 }
 
 // RoleSpec defines the desired state of Role

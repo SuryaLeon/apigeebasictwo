@@ -5,14 +5,14 @@ metadata:
   annotations:
     controller-gen.kubebuilder.io/version: v0.8.0
   creationTimestamp: null
-  name: roles.apigee.apigeebasictwo.crossplane.io
+  name: roles.apigee.apigeebasictwo.jet.crossplane.io
 spec:
-  group: apigee.apigeebasictwo.crossplane.io
+  group: apigee.apigeebasictwo.jet.crossplane.io
   names:
     categories:
     - crossplane
     - managed
-    - apigeebasictwo
+    - apigeebasictwojet
     kind: Role
     listKind: RoleList
     plural: roles
@@ -62,6 +62,11 @@ spec:
                 - Delete
                 type: string
               forProvider:
+                properties:
+                  name:
+                    type: string
+                required:
+                - name
                 type: object
               providerConfigRef:
                 default:

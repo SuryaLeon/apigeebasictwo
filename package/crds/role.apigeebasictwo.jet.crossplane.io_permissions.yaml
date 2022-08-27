@@ -5,14 +5,14 @@ metadata:
   annotations:
     controller-gen.kubebuilder.io/version: v0.8.0
   creationTimestamp: null
-  name: permissions.role.apigeebasictwo.crossplane.io
+  name: permissions.role.apigeebasictwo.jet.crossplane.io
 spec:
-  group: role.apigeebasictwo.crossplane.io
+  group: role.apigeebasictwo.jet.crossplane.io
   names:
     categories:
     - crossplane
     - managed
-    - apigeebasictwo
+    - apigeebasictwojet
     kind: Permission
     listKind: PermissionList
     plural: permissions

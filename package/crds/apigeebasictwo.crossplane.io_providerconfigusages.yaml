@@ -12,7 +12,7 @@ spec:
     categories:
     - crossplane
     - provider
-    - apigeebasictwo
+    - apigeebasictwojet
     kind: ProviderConfigUsage
     listKind: ProviderConfigUsageList
     plural: providerconfigusages

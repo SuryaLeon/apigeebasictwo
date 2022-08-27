@@ -5,14 +5,14 @@ metadata:
   annotations:
     controller-gen.kubebuilder.io/version: v0.8.0
   creationTimestamp: null
-  name: users.apigee.apigeebasictwo.crossplane.io
+  name: users.apigee.apigeebasictwo.jet.crossplane.io
 spec:
-  group: apigee.apigeebasictwo.crossplane.io
+  group: apigee.apigeebasictwo.jet.crossplane.io
   names:
     categories:
     - crossplane
     - managed
-    - apigeebasictwo
+    - apigeebasictwojet
     kind: User
     listKind: UserList
     plural: users

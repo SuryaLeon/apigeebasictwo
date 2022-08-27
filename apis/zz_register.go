@@ -23,34 +23,16 @@ import (
 	"k8s.io/apimachinery/pkg/runtime"
 
 	v1alpha1 "github.com/SuryaLeon/provider-apigeebasictwo/apis/apigee/v1alpha1"
-	v1alpha1company "github.com/SuryaLeon/provider-apigeebasictwo/apis/company/v1alpha1"
-	v1alpha1developer "github.com/SuryaLeon/provider-apigeebasictwo/apis/developer/v1alpha1"
-	v1alpha1environment "github.com/SuryaLeon/provider-apigeebasictwo/apis/environment/v1alpha1"
-	v1alpha1organization "github.com/SuryaLeon/provider-apigeebasictwo/apis/organization/v1alpha1"
-	v1alpha1proxy "github.com/SuryaLeon/provider-apigeebasictwo/apis/proxy/v1alpha1"
 	v1alpha1role "github.com/SuryaLeon/provider-apigeebasictwo/apis/role/v1alpha1"
-	v1alpha1shared "github.com/SuryaLeon/provider-apigeebasictwo/apis/shared/v1alpha1"
-	v1alpha1target "github.com/SuryaLeon/provider-apigeebasictwo/apis/target/v1alpha1"
-	v1alpha1user "github.com/SuryaLeon/provider-apigeebasictwo/apis/user/v1alpha1"
 	v1alpha1apis "github.com/SuryaLeon/provider-apigeebasictwo/apis/v1alpha1"
-	v1alpha1virtual "github.com/SuryaLeon/provider-apigeebasictwo/apis/virtual/v1alpha1"
 )
 
 func init() {
 	// Register the types with the Scheme so the components can map objects to GroupVersionKinds and back
 	AddToSchemes = append(AddToSchemes,
 		v1alpha1.SchemeBuilder.AddToScheme,
-		v1alpha1company.SchemeBuilder.AddToScheme,
-		v1alpha1developer.SchemeBuilder.AddToScheme,
-		v1alpha1environment.SchemeBuilder.AddToScheme,
-		v1alpha1organization.SchemeBuilder.AddToScheme,
-		v1alpha1proxy.SchemeBuilder.AddToScheme,
 		v1alpha1role.SchemeBuilder.AddToScheme,
-		v1alpha1shared.SchemeBuilder.AddToScheme,
-		v1alpha1target.SchemeBuilder.AddToScheme,
-		v1alpha1user.SchemeBuilder.AddToScheme,
 		v1alpha1apis.SchemeBuilder.AddToScheme,
-		v1alpha1virtual.SchemeBuilder.AddToScheme,
 	)
 }
 

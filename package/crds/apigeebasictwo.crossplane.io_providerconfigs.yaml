@@ -12,7 +12,7 @@ spec:
     categories:
     - crossplane
     - provider
-    - apigeebasictwo
+    - apigeebasictwojet
     kind: ProviderConfig
     listKind: ProviderConfigList
     plural: providerconfigs
@@ -30,7 +30,7 @@ spec:
     name: v1alpha1
     schema:
       openAPIV3Schema:
-        description: A ProviderConfig configures a ApigeeBasicTwo  provider.
+        description: A ProviderConfig configures a ApigeeBasicTwo JET provider.
         properties:
           apiVersion:
             description: 'APIVersion defines the versioned schema of this representation

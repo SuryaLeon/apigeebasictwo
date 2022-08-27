@@ -23,7 +23,19 @@ import (
 	tjconfig "github.com/crossplane/terrajet/pkg/config"
 	"github.com/hashicorp/terraform-plugin-sdk/v2/helper/schema"
 
+	/*"github.com/SuryaLeon/provider-apigeebasictwo/config/apigee"
+	"github.com/SuryaLeon/provider-apigeebasictwo/config/company"
+	"github.com/SuryaLeon/provider-apigeebasictwo/config/developer"
+	"github.com/SuryaLeon/provider-apigeebasictwo/config/environment"
 	"github.com/SuryaLeon/provider-apigeebasictwo/config/null"
+	"github.com/SuryaLeon/provider-apigeebasictwo/config/organization"
+	"github.com/SuryaLeon/provider-apigeebasictwo/config/proxy"
+	
+	"github.com/SuryaLeon/provider-apigeebasictwo/config/shared"
+	"github.com/SuryaLeon/provider-apigeebasictwo/config/target" */
+	"github.com/SuryaLeon/provider-apigeebasictwo/config/user"
+	"github.com/SuryaLeon/provider-apigeebasictwo/config/role"
+	//"github.com/SuryaLeon/provider-apigeebasictwo/config/virtual"
 )
 
 const (
@@ -44,11 +56,40 @@ func GetProvider() *tjconfig.Provider {
 	}
 
 	pc := tjconfig.NewProviderWithSchema([]byte(providerSchema), resourcePrefix, modulePath,
-		tjconfig.WithDefaultResourceFn(defaultResourceFn))
+		tjconfig.WithDefaultResourceFn(defaultResourceFn),
+		tjconfig.WithIncludeList([]string{
+			//"apigeebasictwo_apigee$",
+			//"apigeebasictwo_company$",
+			//"apigeebasictwo_developer$",
+		/*	"apigeebasictwo_environment$",
+			//"apigeebasictwo_null$",
+			"apigeebasictwo_organization$",
+			"apigeebasictwo_proxy$",
+			
+			"apigeebasictwo_shared$",
+			"apigeebasictwo_target$", */
+			"apigee_user$",
+			"apigee_role$",
+			"apigee_role_permission$",
+			//"apigeebasictwo_virtual$",
+		}))
 
 	for _, configure := range []func(provider *tjconfig.Provider){
 		// add custom config functions
-		null.Configure,
+		//apigee.Configure,
+		//company.Configure,
+		//developer.Configure,
+        /*environment.Configure,
+		//null.Configure,
+		organization.Configure,
+		proxy.Configure,
+		
+		shared.Configure,
+		target.Configure, */
+		user.Configure,
+		role.Configure,
+		//rolepermission.Configure,
+		//virtual.Configure,
 	} {
 		configure(pc)
 	}

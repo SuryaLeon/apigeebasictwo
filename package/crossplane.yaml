@@ -4,4 +4,4 @@ metadata:
   name: provider-apigeebasictwo
 spec:
   controller:
-    image: drsurya/csspln:ab.2.2.c
+    image: drsurya/prv:ab2.c

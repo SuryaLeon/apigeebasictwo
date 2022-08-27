@@ -1,11 +1,11 @@
 apiVersion: apigeebasictwo.crossplane.io/v1alpha1
 kind: ProviderConfig
 metadata:
-  name: apigbtwoprvcfg
+  name: abtwoprvcfg
 spec:
   credentials:
     source: Secret
     secretRef:
-      name: moringa
+      name: abtsecprvcfg
       namespace: upbound-system
       key: credentials
